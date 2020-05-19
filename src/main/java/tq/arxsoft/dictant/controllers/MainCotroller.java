@@ -6,11 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 
-@RequestMapping("/")
 public class MainCotroller {
 
-    @GetMapping
+    @GetMapping("/")
     public String main() {
         return "main";
+    }
+
+//    @GetMapping("/login")
+//    public String login() {
+//        return "login";
+//    }
+
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "/error/access-denied";
     }
 }
