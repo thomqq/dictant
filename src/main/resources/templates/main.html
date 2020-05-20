@@ -33,9 +33,7 @@
         <div class="col-sm-6">
             <form>
                 <select class="form-control">
-                    <option>Rozmowa kwalifikacyjna</option>
-                    <option>Zwierzęta</option>
-                    <option>PET</option>
+                    <option th:each="lesson : ${lessons}" th:value="${lesson.getId()}" th:text="${lesson.getName()}"></option>
                 </select>
             </form>
             <br/>
