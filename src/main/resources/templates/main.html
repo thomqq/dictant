@@ -25,26 +25,30 @@
             <button class="btn btn-lg btn-primary" th:text="#{label.logout}">LOGOUT</button>
         </div>
     </div>
-    <div class="row text-center">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6"><h1 th:text="#{main.label}">LESSONS</h1><br/></div>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <form>
+    <form action="#" th:action="@{/lesson}" th:object="lessonId">
+        <div class="row text-center">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6"><h1 th:text="#{main.label}">LESSONS</h1><br/></div>
+            <div class="col-sm-3"></div>
+
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+
                 <select class="form-control">
-                    <option th:each="lesson : ${lessons}" th:value="${lesson.getId()}" th:text="${lesson.getName()}"></option>
+                    <option th:each="lesson : ${lessons}" th:value="${lesson.getId()}"
+                            th:text="${lesson.getName()}"></option>
                 </select>
-            </form>
-            <br/>
+
+                <br/>
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-lg btn-primary" th:text="#{main.btn.start}">START</button>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <button class="btn btn-lg btn-primary" th:text="#{main.btn.start}">START</button>
-        </div>
-        <div class="col-sm-3"></div>
-    </div>
+    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
