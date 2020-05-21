@@ -29,12 +29,12 @@ public class AuthorizationConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                    .formLogin().permitAll()
+                .formLogin().permitAll()
                 .and()
-                    .logout()
-                    .invalidateHttpSession(true)
-                    .clearAuthentication(true)
-                    .permitAll();
+                .logout()
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .permitAll();
 
     }
 }

@@ -22,10 +22,10 @@ public class LessonController {
     @GetMapping("/lesson")
     ModelAndView lesson(@RequestParam("lessonid") int id) {
         ModelAndView modelAndView = new ModelAndView();
-        LessonInfo lessonInfo = lessonService.getLesson(id);
+        LessonInfo lessonInfo = lessonService.getLessonInfo(id);
         modelAndView.addObject("lessonInfo", lessonInfo);
         modelAndView.setViewName("lesson");
 
-        return  modelAndView;
+        return modelAndView;
     }
 }

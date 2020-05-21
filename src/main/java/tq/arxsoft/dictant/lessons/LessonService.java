@@ -3,6 +3,9 @@ package tq.arxsoft.dictant.lessons;
 import java.util.List;
 
 public interface LessonService {
-    List< LessonInfo > getLessons() ;
-    LessonInfo getLesson(int id);
+    List<LessonInfo> getLessonInfos();
+
+    LessonInfo getLessonInfo(int id);
+
+    Lesson getLesson(int id);
 }

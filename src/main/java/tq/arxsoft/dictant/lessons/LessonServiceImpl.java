@@ -7,12 +7,17 @@ import java.util.List;
 @Service
 public class LessonServiceImpl implements LessonService {
     @Override
-    public List<LessonInfo> getLessons() {
+    public List<LessonInfo> getLessonInfos() {
         return null;
     }
 
     @Override
-    public LessonInfo getLesson(int id) {
+    public LessonInfo getLessonInfo(int id) {
+        return null;
+    }
+
+    @Override
+    public Lesson getLesson(int id) {
         return null;
     }
 }
