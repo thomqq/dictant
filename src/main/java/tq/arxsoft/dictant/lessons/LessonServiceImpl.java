@@ -10,4 +10,9 @@ public class LessonServiceImpl implements LessonService {
     public List<LessonInfo> getLessons() {
         return null;
     }
+
+    @Override
+    public LessonInfo getLesson(int id) {
+        return null;
+    }
 }

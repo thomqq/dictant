@@ -25,7 +25,7 @@
             <button class="btn btn-lg btn-primary" th:text="#{label.logout}">LOGOUT</button>
         </div>
     </div>
-    <form action="#" th:action="@{/lesson}" th:object="lessonId">
+    <form action="#" th:action="@{/lesson}">
         <div class="row text-center">
             <div class="col-sm-3"></div>
             <div class="col-sm-6"><h1 th:text="#{main.label}">LESSONS</h1><br/></div>
@@ -34,7 +34,7 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
 
-                <select class="form-control">
+                <select class="form-control" name="lessonid">
                     <option th:each="lesson : ${lessons}" th:value="${lesson.getId()}"
                             th:text="${lesson.getName()}"></option>
                 </select>

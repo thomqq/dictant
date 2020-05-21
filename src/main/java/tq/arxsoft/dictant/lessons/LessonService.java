@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface LessonService {
     List< LessonInfo > getLessons() ;
+    LessonInfo getLesson(int id);
 }
