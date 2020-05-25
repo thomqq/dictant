@@ -10,4 +10,10 @@ import java.util.List;
 public class Lesson {
     private LessonInfo lessonInfo;
     private List<Question> questions;
+
+    public Question getNextQuestion(LessonContext lessonContext) {
+        int pos = (lessonContext.getQuestionNumber() + 1 ) % questions.size();
+        lessonContext.setQuestionNumber( pos );
+        return questions.get(pos);
+    }
 }

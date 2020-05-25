@@ -2,9 +2,7 @@ package tq.arxsoft.dictant.lessons.fakes;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import tq.arxsoft.dictant.lessons.Lesson;
-import tq.arxsoft.dictant.lessons.LessonInfo;
-import tq.arxsoft.dictant.lessons.LessonService;
+import tq.arxsoft.dictant.lessons.*;
 
 import java.util.*;
 
@@ -33,7 +31,59 @@ public class LessonServiceFake implements LessonService {
 
     @Override
     public Lesson getLesson(int id) {
+        switch (id) {
+            case 1:
+                return createInterviewLesson();
+            case 2:
+                return createPETLesson();
+            case 3:
+                return createAnimalLesson();
+
+        }
         return null;
+    }
+
+    private Lesson createAnimalLesson() {
+        Lesson lesson = new Lesson(getLessonInfo(3), createAnimalQuestion());
+        return lesson;
+    }
+
+    private List<Question> createAnimalQuestion() {
+        List<Question> questions = new ArrayList<>();
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question1", Arrays.asList("Answer1")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question2", Arrays.asList("Answer2")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question3", Arrays.asList("Answer3")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question4", Arrays.asList("Answer4")));
+        return questions;
+
+    }
+
+    private Lesson createPETLesson() {
+        Lesson lesson = new Lesson(getLessonInfo(2), createPETQuestion());
+        return lesson;
+    }
+
+    private List<Question> createPETQuestion() {
+        List<Question> questions = new ArrayList<>();
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question1", Arrays.asList("Answer1")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question2", Arrays.asList("Answer2")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question3", Arrays.asList("Answer3")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question4", Arrays.asList("Answer4")));
+        return questions;
+    }
+
+    private Lesson createInterviewLesson() {
+        Lesson lesson = new Lesson(getLessonInfo(1), createInterviewQuestion());
+        return lesson;
+    }
+
+    private List<Question> createInterviewQuestion() {
+        List<Question> questions = new ArrayList<>();
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question1", Arrays.asList("Answer1")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question2", Arrays.asList("Answer2")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question3", Arrays.asList("Answer3")));
+        questions.add(new Question(QuestionType.SimpleQuestionAnswer, "Question4", Arrays.asList("Answer4")));
+        return questions;
     }
 
     @Override
