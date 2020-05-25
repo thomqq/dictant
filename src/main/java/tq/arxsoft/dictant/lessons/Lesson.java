@@ -12,8 +12,8 @@ public class Lesson {
     private List<Question> questions;
 
     public Question getNextQuestion(LessonContext lessonContext) {
-        int pos = (lessonContext.getQuestionNumber() + 1 ) % questions.size();
-        lessonContext.setQuestionNumber( pos );
+        int pos = (lessonContext.getQuestionNumber() ) % questions.size();
+        lessonContext.setQuestionNumber( pos  + 1);
         return questions.get(pos);
     }
 }
