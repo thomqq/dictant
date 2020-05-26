@@ -3,6 +3,7 @@ package tq.arxsoft.dictant.lessons.fakes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import tq.arxsoft.dictant.entity.LessonEntity;
 import tq.arxsoft.dictant.entity.LessonRepository;
 import tq.arxsoft.dictant.lessons.*;
 
@@ -12,27 +13,26 @@ import java.util.*;
 @Primary
 public class LessonServiceFake implements LessonService {
 
-
+    private Hashtable<Long, LessonInfo> lessons = new Hashtable<>();
     private LessonRepository lessonRepository;
 
     @Autowired
     public LessonServiceFake(LessonRepository lessonRepository) {
         this.lessonRepository = lessonRepository;
-    }
-
-    private Hashtable<Integer, LessonInfo> lessons = new Hashtable<>();
-
-    public LessonServiceFake() {
-        lessons.put(1, new LessonInfo(1, "Rozmowa"));
+        for (LessonEntity lessonEntity : lessonRepository.findAll()) {
+            lessons.put(lessonEntity.getId(), new LessonInfo(lessonEntity.getId(), lessonEntity.getName()));
+        }
+               /* lessons.put(1, new LessonInfo(1, "Rozmowa"));
         lessons.put(2, new LessonInfo(2, "PET"));
         lessons.put(3, new LessonInfo(3, "Zwierzęta"));
-
+        *
+        */
     }
 
     @Override
     public List<LessonInfo> getLessonInfos() {
         ArrayList<LessonInfo> infos = new ArrayList<>();
-        for (Integer i : lessons.keySet()) {
+        for (Long i : lessons.keySet()) {
             infos.add(lessons.get(i));
         }
         infos.sort((x, y) -> x.getName().compareTo(y.getName()));
