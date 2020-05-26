@@ -1,7 +1,9 @@
 package tq.arxsoft.dictant.lessons.fakes;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import tq.arxsoft.dictant.entity.LessonRepository;
 import tq.arxsoft.dictant.lessons.*;
 
 import java.util.*;
@@ -9,6 +11,14 @@ import java.util.*;
 @Service
 @Primary
 public class LessonServiceFake implements LessonService {
+
+
+    private LessonRepository lessonRepository;
+
+    @Autowired
+    public LessonServiceFake(LessonRepository lessonRepository) {
+        this.lessonRepository = lessonRepository;
+    }
 
     private Hashtable<Integer, LessonInfo> lessons = new Hashtable<>();
 
