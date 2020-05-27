@@ -10,7 +10,7 @@ import tq.arxsoft.dictant.lessons.*;
 import java.util.*;
 
 @Service
-@Primary
+
 public class LessonServiceFake implements LessonService {
 
     private Hashtable<Long, LessonInfo> lessons = new Hashtable<>();
@@ -40,8 +40,8 @@ public class LessonServiceFake implements LessonService {
     }
 
     @Override
-    public Lesson getLesson(int id) {
-        switch (id) {
+    public Lesson getLesson(long id) {
+        switch ((int)id) {
             case 1:
                 return createInterviewLesson();
             case 2:
@@ -97,7 +97,7 @@ public class LessonServiceFake implements LessonService {
     }
 
     @Override
-    public LessonInfo getLessonInfo(int id) {
+    public LessonInfo getLessonInfo(long id) {
         return lessons.get(id);
     }
 }

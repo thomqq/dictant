@@ -5,7 +5,7 @@ import java.util.List;
 public interface LessonService {
     List<LessonInfo> getLessonInfos();
 
-    LessonInfo getLessonInfo(int id);
+    LessonInfo getLessonInfo(long id);
 
-    Lesson getLesson(int id);
+    Lesson getLesson(long id);
 }
